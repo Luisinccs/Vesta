@@ -1,0 +1,13 @@
+# VESTA PROJECT STRUCTURE - 2026-02-10
+# Architecture: Island-Based (Decoupled)
+
+[ ] /Core/Interfaces/ISocket.cs (Base)
+[ ] /Core/Interfaces/IAISocket.cs (Gemma 2B)
+[ ] /Core/Interfaces/IOCRSocket.cs (Tesseract/Local)
+[ ] /Core/Interfaces/ILegalSocket.cs (Analysis Logic)
+[ ] /Core/Models/ContractReport.cs
+[ ] /Infrastructure/AI/GemmaInferenceService.cs
+[ ] /Infrastructure/OCR/LocalOcrService.cs
+[ ] /Infrastructure/Persistence/SecureStorageService.cs
+[ ] /UI/ViewModels/MainAuditorViewModel.cs
+[ ] /UI/Views/DashboardPage.xaml
