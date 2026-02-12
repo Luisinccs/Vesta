@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>Vesta</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.20.1" />
+		<PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.20.1" />
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.6.0" />
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI.Managed" Version="0.6.0" />
+		<PackageReference Include="Tesseract" Version="5.2.0" />
+	</ItemGroup>
+
+</Project>

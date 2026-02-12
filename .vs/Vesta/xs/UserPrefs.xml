@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{B2C3D4E5-F6A7-8901-BCDE-F12345678901}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Vesta PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1E304E2A-4412-4116-A8E0-1C0A0CC25457" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Vesta.Console PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Vesta" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

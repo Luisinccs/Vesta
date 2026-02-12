@@ -11,3 +11,5 @@
 [ ] /Infrastructure/Persistence/SecureStorageService.cs
 [ ] /UI/ViewModels/MainAuditorViewModel.cs
 [ ] /UI/Views/DashboardPage.xaml
+
+/Users/luis_sonoma/Desarrollo/Vesta/TestAssets/ContratoPrueba.png

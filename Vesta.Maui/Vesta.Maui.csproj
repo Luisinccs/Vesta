@@ -1,0 +1,91 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- De momento solo se va a compilar para ios, cuando se agrege el kit de android se compila -->
+		<!-- <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('windows'))">net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks> -->
+		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('windows'))">net8.0-ios</TargetFrameworks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
+		<MicrosoftIosSdkRuntimeIdentifierVersion>17.0.8523</MicrosoftIosSdkRuntimeIdentifierVersion>
+		<MicrosoftIosSdkVersion>17.0.8523</MicrosoftIosSdkVersion>
+		<MtouchLink>None</MtouchLink>
+		<PublishTrimmed>false</PublishTrimmed>
+		<_MustTrim>false</_MustTrim>
+		<_SuppressXamarinPublishTrimmedCheck>true</_SuppressXamarinPublishTrimmedCheck>
+		<MtouchSdkVersion>17.5</MtouchSdkVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<WindowsSdkPackageVersion>10.0.19041.53</WindowsSdkPackageVersion>
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Vesta</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>Vesta</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.vesta</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<!-- <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion> -->
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>		
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="..\SharedAssets\Models\**\*" LogicalName="Models\%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="..\SharedAssets\TessData\**\*" LogicalName="TessData\%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Referencia al proyecto compartido -->
+		<ProjectReference Include="..\Vesta.Core\Vesta.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+		<PackageReference Include="SkiaSharp" Version="2.88.9" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Configuración para modelos de IA local -->
+		<None Update="**\*.onnx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<!-- Configuración de Tesseract para Windows -->
+		<None Update="Resources\Raw\TessData\*.traineddata">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>tessdata\%(Filename)%(Extension)</TargetPath>
+		</None>
+	</ItemGroup>
+
+</Project>

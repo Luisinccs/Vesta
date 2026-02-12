@@ -1,0 +1,4 @@
+<Project>
+	<!-- This file overrides certain SDK targets to fix issues with misplaced workloads -->
+	<Target Name="_CheckForMissingWorkload" />
+</Project>

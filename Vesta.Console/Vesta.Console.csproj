@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>Vesta.Console</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Vesta.Core\Vesta.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Referencia a los activos compartidos (Modelos e Idiomas OCR) -->
+		<None Include="..\SharedAssets\Models\**\*">
+			<Link>Models\%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\SharedAssets\TessData\**\*">
+			<Link>TessData\%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="libleptonica-1.82.0.dylib">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="tesseract50.dylib">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\libleptonica-1.82.0.dylib">
+			<Link>x64\libleptonica-1.82.0.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\tesseract50.dylib">
+			<Link>x64\tesseract50.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\libtesseract50.dylib">
+			<Link>x64\libtesseract50.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="libtesseract50.dylib">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\libleptonica.dylib">
+			<Link>x64\libleptonica.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\libtesseract.dylib">
+			<Link>x64\libtesseract.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="x64\libtesseract.5.dylib">
+			<Link>x64\libtesseract.5.dylib</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

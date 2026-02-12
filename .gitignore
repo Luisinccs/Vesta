@@ -7,6 +7,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+# Mac
+.DS_Store
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -56,3 +59,14 @@ nunit-*.xml
 # Modelos de IA (Local ONNX)
 Resources/Raw/Models/
 *.onnx
+
+# Shared and Test Assets
+SharedAssets/
+TestAssets/
+
+# Native Libraries for Testing
+*.dylib
+Vesta.Console/x64/
+Vesta.Console/libleptonica*
+Vesta.Console/tesseract*
+Vesta.Console/libtesseract*
